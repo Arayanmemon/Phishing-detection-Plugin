@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "Phishing Detection Plugin",
+    "version": "1.0.0",
+    "description": "Detect phishing websites and provide a score meter.",
+    "permissions": ["tabs", "scripting"],
+    "background": {
+      "service_worker": "service-worker.js",
+      "type": "module"
+    },
+    "action" : {
+      "default_popup": "index.html"
+    },
+    "host_permissions": [
+      "http://*/*",
+      "https://*/*"
+    ]
+  }
