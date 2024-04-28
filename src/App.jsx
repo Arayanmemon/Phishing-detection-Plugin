@@ -8,6 +8,7 @@ function App() {
   const [currentUrl, setCurrentUrl] = useState("");
   const [load, setLoad] = useState(false);
   const [show, setShow] = useState(false);
+  const [domainRank, setDomainRank] = useState(0);
 
   const checkSpam = async () => {
     setLoad(true);
@@ -18,7 +19,6 @@ function App() {
       target: { tabId: tab.id },
       func: () => {
         URL
-
       }
     })
     let config = {
@@ -36,6 +36,7 @@ function App() {
         setShow(true);
         myRef.current.style.transform = `rotate(${response.data.risk_score * 1.8}deg)`;
         setInfo(JSON.stringify(response.data.risk_score));
+        setDomainRank(response.data.domain_rank);
         // myRef.current.style.transform = `rotate(${info * 1.8}deg)`;
 
       })
@@ -55,7 +56,6 @@ function App() {
       target: { tabId: tab.id },
       func: () => {
         URL
-
       }
     })
     let config = {
@@ -109,9 +109,11 @@ function App() {
                 URL : {currentUrl}
               </p>
               <p>
+                Domain Rank : {domainRank ? domainRank : "Not Available"}
+              </p>
+              <p>
                 Score : {info}
               </p>
-
             </>
           }
           <div className={`${show ? "show" : "hide"}`}>
