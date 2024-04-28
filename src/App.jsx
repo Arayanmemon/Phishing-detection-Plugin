@@ -3,17 +3,23 @@ import axios from 'axios';
 
 function App() {
   const [info, setInfo] = useState("")
+  const [previousUrl, setPreviousUrl] = useState("")
   useEffect(() => {
+    chrome.storage.local.get(['url'], (result) => {
+      console.log("result")
+      if (result.url) {
+        setInfo(result.url);
+      }
+    });
+
     const tabUpdatedHandler = (tabId, changeInfo, tab) => {
-      if (changeInfo.status === 'complete') {
-        const url = tab.url;
-        // Now you can send a request to check the health of the URL
-        setInfo(url);
+      if (changeInfo.status === 'complete' && tab.url !== info) {
+        setInfo(tab.url);
+        chrome.storage.local.set({ url: tab.url });
       }
     };
 
     chrome.tabs.onUpdated.addListener(tabUpdatedHandler);
-
 
     return () => {
       chrome.tabs.onUpdated.removeListener(tabUpdatedHandler);
@@ -66,6 +72,9 @@ function App() {
         </p>
         <p>
           Score : {info}
+        </p>
+        <p>
+          Previous Url: {previousUrl}
         </p>
       </div>
     </>

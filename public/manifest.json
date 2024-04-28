@@ -3,7 +3,7 @@
     "name": "Phishing Detection Plugin",
     "version": "1.0.0",
     "description": "Detect phishing websites and provide a score meter.",
-    "permissions": ["tabs", "scripting"],
+    "permissions": ["tabs", "scripting" , "storage"],
     "background": {
       "service_worker": "service-worker.js",
       "type": "module"
