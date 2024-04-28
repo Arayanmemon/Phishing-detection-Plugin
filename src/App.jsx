@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import axios from 'axios';
 
 function App() {
+  const myRef = useRef(null);
   const [info, setInfo] = useState("")
   const [previousUrl, setPreviousUrl] = useState("")
   useEffect(() => {
@@ -49,6 +50,7 @@ function App() {
       .then((response) => {
         console.log(JSON.stringify(response.data.risk_score));
         // alert(JSON.stringify(response.data.risk_score))
+        myRef.current.style.transform = `rotate(${response.data.risk_score*1.8}deg)`;
         setInfo(JSON.stringify(response.data.risk_score));
       })
       .catch((error) => {
@@ -61,21 +63,27 @@ function App() {
     <>
       <h1>Phishing Site Detection</h1>
       <div className="card">
-        <button onClick={() => oneclick()}>
-          Check spam
-        </button>
-        <button onClick={() => checkSpam()}>
-          API Call
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        <div className='btns'>
+          <button onClick={() => oneclick()}>
+            Check spam
+          </button>
+          <button onClick={() => checkSpam()}>
+            API Call
+          </button>
+        </div>
         <p>
           Score : {info}
         </p>
         <p>
           Previous Url: {previousUrl}
         </p>
+
+        <div>
+          <div id="el" data-value={info}>
+            <span id="needle" ref={myRef}></span>
+          </div>
+          <strong>Risk Score</strong>
+        </div>
       </div>
     </>
   )
