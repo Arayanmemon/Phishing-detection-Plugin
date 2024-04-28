@@ -22,7 +22,7 @@ a:hover {
   color: #535bf2;
 }
 
-.btns{
+.btns {
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -34,7 +34,7 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 h1 {
@@ -73,16 +73,6 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-
-
-
-
-
-
-
-
-
-
 
 #el:before {
   background: #fbfbfb;
@@ -147,6 +137,7 @@ strong {
   display: block;
   font-family: Lato;
   text-align: center;
+  margin-inline: 1ch;
 }
 
 h1 {
@@ -155,9 +146,42 @@ h1 {
 
 p {
   margin-top: 0;
+  text-align: left;
 }
 
 strong {
   color: #efefef;
   font-size: 2.5em;
+  text-align: left;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin: 4px 0;
+  margin-bottom: 8px;
+}
+
+.activeTab {
+  background-color: white;
+  color: black;
+  border-radius: 0px;
+  text-transform: uppercase;
+}
+.notActiveTab {
+  background-color: #646cff;
+  color: #fff;
+  border-radius: 0px;
+  text-transform: uppercase;
+}
+.activeTab:focus {
+  outline: none;
+}
+.notActiveTab:focus {
+  outline: none;
 }
