@@ -1,8 +1,11 @@
-# React + Vite
+# Phishing Detection Plugin Using React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![IMG1](https://github.com/Arayanmemon/Phishing-detection-Plugin/assets/97906061/ec9c1985-bbe4-41e1-885e-106ec7ef8b5a)
+![IMG2](https://github.com/Arayanmemon/Phishing-detection-Plugin/assets/97906061/20b75376-d5c3-466b-9e6a-be679a36f32c)
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. React for plugin frontend
+2. Custom ML model for phishing detection
+3. Flask for developing API endpoint
+4. IP Quality Score API for phishing detection
