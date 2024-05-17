@@ -9,6 +9,7 @@ function App() {
   const [load, setLoad] = useState(false);
   const [show, setShow] = useState(false);
   const [domainRank, setDomainRank] = useState(0);
+  const apiKey = "";
 
   const checkSpam = async () => {
     setLoad(true);
@@ -24,7 +25,7 @@ function App() {
     let config = {
       method: 'get',
       maxBodyLength: Infinity,
-      url: `https://www.ipqualityscore.com/api/json/url/VCAwWHMpf8tBh97hTODyAxEgbcKNBDxp/${encodeURIComponent([tab][0].url)}`,
+      url: `https://www.ipqualityscore.com/api/json/url/${apiKey}/${encodeURIComponent([tab][0].url)}`,
       headers: {}
     };
 
